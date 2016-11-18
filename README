@@ -1,45 +1,21 @@
-I am Vasyl Zahorodniuk. And I am looking forward for a nice job) 
 
-This is a kernal task:
+1. Intall
+Launch install.php to create database structure;
 
-Development Test
-Completion and delivery of this test twenty-four (24) hours of submitting your application is required.
+2. Structure
+I have made php program on nginx with structure:
 
+ - engine
+ - client_portal
+ - index.php
 
-Instructions:
+In index php there is bootstrap template, welcoming page. 
 
+After you login POST request goes to engine/login.php (There is protection on POST\GET requests)
+In login.php root.php starts class root and checks login and pass(md5) from mysqli database if finds any matches, sets login and pass to SESSION. 
+ 
+Session lifetime param is set to 900. (15 min)
 
-Here is the hypothetical scenario: the client, Slicedbread, is looking to build a private directory on an exclusive server that allows their development team to post projects for testing purposes and for clients to see the work in progress. 
+After correct login page redirects to account.php (Here we protect file by SESSION check if SESSION login is incorrect redirect to main and die)
 
-
-All client projects will be uploaded into this directory and each project will be named according to the project name (ie. /project1, /project2, etc.). The directory all of these projects will live in will be called /client-portal. 
-
-
-For this test, build a portal that achieves the following:
-
-
-A single landing page (using any available signage/branding you see on our current website) that requests for a username/password.
-Username: test
-Password: portal
-
-
-The landing page should be tastefully branded and using the same design language as established on the Slicedbread website. (This page will also need to be desktop and mobile responsive) 
-
-
-Username/password validation should ping the server and provide back a response via AJAX. 
-If login is successful, “LOGIN SUCCESSFUL” should appear via AJAX momentarily before directing the user to the next page. 
-If login is unsuccessful, an error message stating “LOGIN UNSUCCESSFUL” should appear via AJAX. 
-
-
-Any pages within sub-directories should be inaccessible if the user has not logged in the past 15 minutes. If a user has not logged within the last 15 minutes, they should be directed to this landing page. 
-
-
-Upon completion of the project, please commit this to a git repository created by you and upload your work to a server we can access by URL.
-
-
-When you have fully completed the test, please send us a link to the live application and to your GIT repository.
-
-
-
-
-LET SEE IF I CAN PROOF MY SKILLS) 
+all project files are in client_portal folder and protected from direct launch, the same as other files.
